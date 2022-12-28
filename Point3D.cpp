@@ -61,34 +61,12 @@ namespace priori{
 		return *this;
 	}
 
-	Point3D Point3D::operator+(const double &other){
-		return Point3D(x+other, y+other, z+other);
-	}
-
-	Point3D Point3D::operator-(const double &other){
-		return Point3D(x-other, y-other, z-other);
-	}
-
 	Point3D Point3D::operator*(const double &other){
 		return Point3D(x*other, y*other, z*other);
 	}
 
 	Point3D Point3D::operator/(const double &other){
 		return Point3D(x/other, y/other, z/other);
-	}
-
-	Point3D Point3D::operator+=(const double &other){
-		x += other;
-		y += other;
-		z += other;
-		return *this;
-	}
-
-	Point3D Point3D::operator-=(const double &other){
-		x -= other;
-		y -= other;
-		z -= other;
-		return *this;
 	}
 
 	Point3D Point3D::operator*=(const double &other){

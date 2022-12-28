@@ -33,13 +33,9 @@ namespace priori{
 		Point3D operator*=(const Point3D &other);
 		Point3D operator/=(const Point3D &other);
 
-		Point3D operator+(const double &other);
-		Point3D operator-(const double &other);
 		Point3D operator*(const double &other);
 		Point3D operator/(const double &other);
 
-		Point3D operator+=(const double &other);
-		Point3D operator-=(const double &other);
 		Point3D operator*=(const double &other);
 		Point3D operator/=(const double &other);
 	};
