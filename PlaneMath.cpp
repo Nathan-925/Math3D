@@ -24,8 +24,6 @@ namespace priori{
 
 	Point3D intersectionToPlane(Plane &plane, Point3D &neg, Point3D &pos){
 		double t = intersectionPercent(plane, neg, pos);
-		return Point3D(neg.x+t*(pos.x-neg.x),
-					   neg.y+t*(pos.y-neg.y),
-					   neg.z+t*(pos.z-neg.z));;
+		return neg+(pos-neg)*t;
 	}
 }
