@@ -8,8 +8,6 @@
 #ifndef PRIORI_MATH3D_POINT3D_H_
 #define PRIORI_MATH3D_POINT3D_H_
 
-#include "TransformationMatrix.h"
-
 namespace priori{
 	struct Point3D{
 		union{
@@ -21,7 +19,6 @@ namespace priori{
 
 		Point3D() : mat{0, 0, 0, 1} {};
 		Point3D(long double x, long double y, long double z) : mat{x, y, z, 1} {};
-		Point3D transform(const TransformationMatrix &matrix);
 
 		Point3D operator+(const Point3D &other) const;
 		Point3D operator-(const Point3D &other) const;

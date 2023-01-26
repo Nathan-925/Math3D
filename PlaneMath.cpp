@@ -7,7 +7,13 @@
 #include "PlaneMath.h"
 
 namespace priori{
-	double distanceToUnitPlane(Point3D point, Plane plane){
+	Plane toUnitPlane(Plane plane){
+		double mag = (plane.a+plane.b+plane.c)/3;
+		return Plane(plane.a*mag, plane.b*mag, plane.c*mag, plane.d);
+	}
+
+	double distanceToPlane(Point3D point, Plane plane){
+		plane = toUnitPlane(plane);
 		return point.x*plane.a +
 			   point.y*plane.b +
 			   point.z*plane.c +

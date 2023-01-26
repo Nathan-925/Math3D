@@ -8,6 +8,8 @@
 #ifndef PRIORI_MATH3D_TRANSFORMATIONMATRIX_H_
 #define PRIORI_MATH3D_TRANSFORMATIONMATRIX_H_
 
+#include  "Point3D.h"
+
 namespace priori{
 	struct TransformationMatrix{
 		long double matrix[4][4] = {{1, 0, 0, 0},
@@ -20,6 +22,8 @@ namespace priori{
 			matrix[3][1] = y;
 			matrix[3][2] = z;
 		};
+
+		Point3D transform(const Point3D &point);
 
 		TransformationMatrix operator*(const TransformationMatrix &other);
 	};
