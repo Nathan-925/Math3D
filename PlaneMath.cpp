@@ -9,7 +9,7 @@
 namespace priori{
 	Plane toUnitPlane(Plane plane){
 		double mag = (plane.a+plane.b+plane.c)/3;
-		return Plane(plane.a*mag, plane.b*mag, plane.c*mag, plane.d);
+		return Plane(plane.a/mag, plane.b/mag, plane.c/mag, plane.d);
 	}
 
 	double distanceToPlane(Point3D point, Plane plane){
