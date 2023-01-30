@@ -10,15 +10,10 @@
 
 namespace priori{
 	struct Point3D{
-		union{
-			struct{
-				long double x, y, z;
-			};
-			long double mat[4];
-		};
+		double x, y, z;
 
-		Point3D() : mat{0, 0, 0, 1} {};
-		Point3D(long double x, long double y, long double z) : mat{x, y, z, 1} {};
+		Point3D() : x(0), y(0), z(0) {};
+		Point3D(double x, double y, double z) : x(x), y(y), z(z) {};
 
 		Point3D operator+(const Point3D &other) const;
 		Point3D operator-(const Point3D &other) const;
@@ -30,16 +25,23 @@ namespace priori{
 		Point3D operator*=(const Point3D &other);
 		Point3D operator/=(const Point3D &other);
 
-		Point3D operator*(const double &other);
-		Point3D operator/(const double &other);
+		Point3D operator*(const double &d);
+		Point3D operator/(const double &d);
 
-		Point3D operator*=(const double &other);
-		Point3D operator/=(const double &other);
+		Point3D operator*=(const double &d);
+		Point3D operator/=(const double &d);
+
+		double operator[](const int &n) const;
 	};
 
-	struct Vector3D: Point3D{
-		Vector3D() : Point3D() { mat[4] = 0; };
-		Vector3D(long double x, long double y, long double z) : Point3D(x, y, z) { mat[4] = 0; };
+	struct Vector3D : Point3D{
+		Vector3D() : Point3D() {};
+		Vector3D(double x, double y, double z) : Point3D(x, y, z) {};
+
+		double magnitude() const;
+		Vector3D normalize();
+
+		double operator[](const int &n) const;
 	};
 }
 

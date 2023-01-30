@@ -11,11 +11,14 @@
 #include "TransformationMatrix.h"
 
 namespace priori{
-	TransformationMatrix translate(TransformationMatrix transform, long double x, long double y, long double z);
-	TransformationMatrix rotateX(TransformationMatrix transform, long double angle);
-	TransformationMatrix rotateY(TransformationMatrix transform, long double angle);
-	TransformationMatrix rotateZ(TransformationMatrix transform, long double angle);
-	TransformationMatrix scale(TransformationMatrix transform, long double xFactor, long double yFactor, long double zFactor);
+	TransformationMatrix translate(double x, double y, double z);
+	TransformationMatrix rotateX(double angle);
+	TransformationMatrix rotateY(double angle);
+	TransformationMatrix rotateZ(double angle);
+	TransformationMatrix scale(double xFactor, double yFactor, double zFactor);
+	TransformationMatrix flipX();
+	TransformationMatrix flipY();
+	TransformationMatrix flipZ();
 }
 
 #endif /* PRIORI_MATH3D_TRANSFORMATIONS_H_ */

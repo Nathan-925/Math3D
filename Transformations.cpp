@@ -9,38 +9,17 @@
 #include "Transformations.h"
 
 namespace priori{
-	TransformationMatrix translate(TransformationMatrix transform, long double x, long double y, long double z){
+	TransformationMatrix translate(double x, double y, double z){
 		TransformationMatrix translate;
 
 		translate.matrix[3][0] = x;
 		translate.matrix[3][1] = y;
 		translate.matrix[3][2] = z;
 
-		return transform*translate;
+		return translate;
 	}
 
-	TransformationMatrix rotate(TransformationMatrix transform, long double xAngle, long double yAngle, long double zAngle){
-			TransformationMatrix rx, ry, rz;
-
-			rx.matrix[1][1] = cos(xAngle);
-			rx.matrix[1][2] = -sin(xAngle);
-			rx.matrix[2][1] = sin(xAngle);
-			rx.matrix[2][2] = cos(xAngle);
-
-			ry.matrix[0][0] = cos(yAngle);
-			ry.matrix[0][2] = sin(yAngle);
-			ry.matrix[2][0] = -sin(yAngle);
-			ry.matrix[2][2] = cos(yAngle);
-
-			rz.matrix[0][0] = cos(zAngle);
-			rz.matrix[0][1] = -sin(zAngle);
-			rz.matrix[1][0] = sin(zAngle);
-			rz.matrix[1][1] = cos(zAngle);
-
-			return transform*rx*ry*rz;
-		}
-
-	TransformationMatrix rotateX(TransformationMatrix transform, long double angle){
+	TransformationMatrix rotateX(double angle){
 		TransformationMatrix rx;
 
 		rx.matrix[1][1] = cos(angle);
@@ -48,10 +27,10 @@ namespace priori{
 		rx.matrix[2][1] = sin(angle);
 		rx.matrix[2][2] = cos(angle);
 
-		return transform*rx;
+		return rx;
 	}
 
-	TransformationMatrix rotateY(TransformationMatrix transform, long double angle){
+	TransformationMatrix rotateY(double angle){
 		TransformationMatrix ry;
 
 		ry.matrix[0][0] = cos(angle);
@@ -59,10 +38,10 @@ namespace priori{
 		ry.matrix[2][0] = -sin(angle);
 		ry.matrix[2][2] = cos(angle);
 
-		return transform*ry;
+		return ry;
 	}
 
-	TransformationMatrix rotateZ(TransformationMatrix transform, long double angle){
+	TransformationMatrix rotateZ(double angle){
 		TransformationMatrix rz;
 
 		rz.matrix[0][0] = cos(angle);
@@ -70,16 +49,34 @@ namespace priori{
 		rz.matrix[1][0] = sin(angle);
 		rz.matrix[1][1] = cos(angle);
 
-		return transform*rz;
+		return rz;
 	}
 
-	TransformationMatrix scale(TransformationMatrix transform, long double xFactor, long double yFactor, long double zFactor){
+	TransformationMatrix scale(double xFactor, double yFactor, double zFactor){
 		TransformationMatrix scale;
 
 		scale.matrix[0][0] = xFactor;
 		scale.matrix[1][1] = yFactor;
 		scale.matrix[2][2] = zFactor;
 
-		return transform*scale;
+		return scale;
+	}
+
+	TransformationMatrix flipX(){
+		TransformationMatrix flipX;
+		flipX[0][0] = -1;
+		return flipX;
+	}
+
+	TransformationMatrix flipY(){
+		TransformationMatrix flipY;
+		flipY[1][1] = -1;
+		return flipY;
+	}
+
+	TransformationMatrix flipZ(){
+		TransformationMatrix flipZ;
+		flipZ[2][2] = -1;
+		return flipZ;
 	}
 }

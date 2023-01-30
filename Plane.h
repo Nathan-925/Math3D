@@ -8,15 +8,15 @@
 #ifndef PRIORI_MATH3D_PLANE_H_
 #define PRIORI_MATH3D_PLANE_H_
 
+#include "Point3D.h"
+
 namespace priori{
 	struct Plane{
-		struct{
-			double a, b, c, d;
-		};
-		double arr[4];
+		Vector3D vector;
+		double offset;
 
-		Plane() : a(0), b(0), c(0), d(0) {};
-		Plane(double a, double b, double c, double d) : a(a), b(b), c(c), d(d) {};
+		Plane(Vector3D v, double offset = 0) : vector(v), offset(offset) {};
+		Plane(double a, double b, double c, double d) : vector(a, b, c), offset(d) {};
 	};
 }
 
