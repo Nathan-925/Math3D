@@ -15,8 +15,10 @@ namespace priori{
 		Vector3D vector;
 		double offset;
 
-		Plane(Vector3D v, double offset = 0) : vector(v), offset(offset) {};
-		Plane(double a, double b, double c, double d) : vector(a, b, c), offset(d) {};
+		Plane(Vector3D v, double offset = 0);
+		Plane(double a, double b, double c, double d);
+
+		double distance(Point3D point);
 	};
 }
 

@@ -12,7 +12,6 @@
 #include "Point3D.h"
 
 namespace priori{
-	double distanceToPlane(Point3D point, Plane plane);
 	double intersectionPercent(Plane plane, Point3D p1, Point3D p2);
 	Point3D intersectionToPlane(Plane plane, Point3D neg, Point3D pos);
 }
