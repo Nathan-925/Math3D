@@ -15,4 +15,12 @@ namespace priori{
 		return vector.normalize()*point+offset;
 	}
 
+	double Plane::intersectionPercent(Point3D p1, Point3D p2){
+		return (-offset - (vector*p1))/(vector*(p2-p1));
+	}
+
+	Point3D Plane::intersection(Plane plane, Point3D p1, Point3D p2){
+		return p1+(p2-p1)*intersectionPercent(p1, p2);
+	}
+
 }

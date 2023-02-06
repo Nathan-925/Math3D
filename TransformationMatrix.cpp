@@ -7,7 +7,7 @@
 #include "TransformationMatrix.h"
 
 namespace priori{
-	Point3D TransformationMatrix::transform(const Point3D &point) const{
+	Point3D TransformationMatrix::transform(const Vector3D &point) const{
 		long double arr[3];
 		for(int i = 0; i < 3; i++){
 			arr[i] = 0;
@@ -35,7 +35,7 @@ namespace priori{
 		return *this;
 	}
 
-	Point3D TransformationMatrix::operator*(const Point3D &point) const{
+	Point3D TransformationMatrix::operator*(const Vector3D &point) const{
 		return transform(point);
 	}
 

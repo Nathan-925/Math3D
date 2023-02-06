@@ -14,6 +14,7 @@ namespace priori{
 
 		Vector3D() : x(0), y(0), z(0) {};
 		Vector3D(double x, double y, double z) : x(x), y(y), z(z) {};
+		virtual ~Vector3D() {};
 
 		double magnitude() const;
 		Vector3D normalize();
@@ -34,7 +35,7 @@ namespace priori{
 		Vector3D operator*=(const double &d);
 		Vector3D operator/=(const double &d);
 
-		double operator[](const int &n) const;
+		virtual double operator[](const int &n) const;
 	};
 
 	struct Point3D : Vector3D{
