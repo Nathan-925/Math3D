@@ -6,7 +6,7 @@
  */
 #include <cmath>
 
-#include "Point3D.h"
+#include "Vector3D.h"
 
 namespace priori{
 	Vector3D Vector3D::operator+(const Vector3D &other) const{
@@ -56,6 +56,18 @@ namespace priori{
 	Vector3D Vector3D::operator/=(const double &d){
 		*this = *this/d;
 		return *this;
+	}
+
+	bool Vector3D::operator==(const Vector3D &other){
+		return x == other.x &&
+			   y == other.y &&
+			   z == other.z;
+	}
+
+	bool Vector3D::operator!=(const Vector3D &other){
+		return x != other.x &&
+			   y != other.y &&
+			   z != other.z;
 	}
 
 	double Vector3D::operator[](const int &n) const{

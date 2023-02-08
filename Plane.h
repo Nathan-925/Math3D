@@ -8,7 +8,7 @@
 #ifndef PRIORI_MATH3D_PLANE_H_
 #define PRIORI_MATH3D_PLANE_H_
 
-#include "Point3D.h"
+#include "Vector3D.h"
 
 namespace priori{
 	struct Plane{

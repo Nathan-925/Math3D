@@ -5,8 +5,8 @@
  *      Author: Nathan
  */
 
-#ifndef PRIORI_MATH3D_POINT3D_H_
-#define PRIORI_MATH3D_POINT3D_H_
+#ifndef PRIORI_MATH3D_VECTOR3D_H_
+#define PRIORI_MATH3D_VECTOR3D_H_
 
 namespace priori{
 	struct Vector3D{
@@ -35,6 +35,9 @@ namespace priori{
 		Vector3D operator*=(const double &d);
 		Vector3D operator/=(const double &d);
 
+		bool operator==(const Vector3D &other);
+		bool operator!=(const Vector3D &other);
+
 		virtual double operator[](const int &n) const;
 	};
 
@@ -47,4 +50,4 @@ namespace priori{
 	};
 }
 
-#endif /* PRIORI_MATH3D_POINT3D_H_ */
+#endif /* PRIORI_MATH3D_VECTOR3D_H_ */
