@@ -40,11 +40,11 @@ namespace priori{
 		return *this;
 	}
 
-	Vector3D Vector3D::operator*(const double &d){
+	Vector3D Vector3D::operator*(const double &d) const{
 		return Vector3D(x*d, y*d, z*d);
 	}
 
-	Vector3D Vector3D::operator/(const double &d){
+	Vector3D Vector3D::operator/(const double &d) const{
 		return Vector3D(x/d, y/d, z/d);
 	}
 
@@ -58,13 +58,13 @@ namespace priori{
 		return *this;
 	}
 
-	bool Vector3D::operator==(const Vector3D &other){
+	bool Vector3D::operator==(const Vector3D &other) const{
 		return x == other.x &&
 			   y == other.y &&
 			   z == other.z;
 	}
 
-	bool Vector3D::operator!=(const Vector3D &other){
+	bool Vector3D::operator!=(const Vector3D &other) const{
 		return x != other.x &&
 			   y != other.y &&
 			   z != other.z;
@@ -80,6 +80,58 @@ namespace priori{
 			return z;
 		}
 		return 0;
+	}
+
+	Point3D Point3D::operator+(const Point3D &other) const{
+		return Vector3D::operator+(other);
+	}
+
+	Point3D Point3D::operator-(const Point3D &other) const{
+		return Vector3D::operator-(other);
+	}
+
+	Point3D Point3D::operator^(const Point3D &other) const{
+		return Vector3D::operator^(other);
+	}
+
+	double Point3D::operator*(const Point3D &other) const{
+		return Vector3D::operator*(other);
+	}
+
+	Point3D Point3D::operator+=(const Point3D &other){
+		return Vector3D::operator+=(other);
+	}
+
+	Point3D Point3D::operator-=(const Point3D &other){
+		return Vector3D::operator-=(other);
+	}
+
+	Point3D Point3D::operator^=(const Point3D &other){
+		return Vector3D::operator^=(other);
+	}
+
+	Point3D Point3D::operator*(const double &d) const{
+		return Vector3D::operator*(d);
+	}
+
+	Point3D Point3D::operator/(const double &d) const{
+		return Vector3D::operator/(d);
+	}
+
+	Point3D Point3D::operator*=(const double &d){
+		return Vector3D::operator*=(d);
+	}
+
+	Point3D Point3D::operator/=(const double &d){
+		return Vector3D::operator/=(d);
+	}
+
+	bool Point3D::operator==(const Point3D &other) const{
+		return Vector3D::operator==(other);
+	}
+
+	bool Point3D::operator!=(const Point3D &other) const{
+		return Vector3D::operator!=(other);
 	}
 
 	double Point3D::operator[](const int &n) const{

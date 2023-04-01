@@ -29,14 +29,14 @@ namespace priori{
 		Vector3D operator-=(const Vector3D &other);
 		Vector3D operator^=(const Vector3D &other);
 
-		Vector3D operator*(const double &d);
-		Vector3D operator/(const double &d);
+		Vector3D operator*(const double &d) const;
+		Vector3D operator/(const double &d) const;
 
 		Vector3D operator*=(const double &d);
 		Vector3D operator/=(const double &d);
 
-		bool operator==(const Vector3D &other);
-		bool operator!=(const Vector3D &other);
+		bool operator==(const Vector3D &other) const;
+		bool operator!=(const Vector3D &other) const;
 
 		virtual double operator[](const int &n) const;
 	};
@@ -45,6 +45,25 @@ namespace priori{
 		Point3D() : Vector3D() {};
 		Point3D(double x, double y, double z) : Vector3D(x, y, z) {};
 		Point3D(Vector3D other) : Vector3D(other) {};
+
+		Point3D operator+(const Point3D &other) const;
+		Point3D operator-(const Point3D &other) const;
+		Point3D operator^(const Point3D &other) const;
+
+		double operator*(const Point3D &other) const;
+
+		Point3D operator+=(const Point3D &other);
+		Point3D operator-=(const Point3D &other);
+		Point3D operator^=(const Point3D &other);
+
+		Point3D operator*(const double &d) const;
+		Point3D operator/(const double &d) const;
+
+		Point3D operator*=(const double &d);
+		Point3D operator/=(const double &d);
+
+		bool operator==(const Point3D &other) const;
+		bool operator!=(const Point3D &other) const;
 
 		double operator[](const int &n) const;
 	};
