@@ -15,12 +15,9 @@ namespace priori{
 		Vector3D vector;
 		double offset;
 
-		Plane(Vector3D v, double offset = 0);
-		Plane(double a, double b, double c, double d);
-
-		double distance(Point3D point);
-		double intersectionPercent(Point3D p1, Point3D p2);
-		Point3D intersection(Plane plane, Point3D p1, Point3D p2);
+		double distance(Vector3D point);
+		double intersectionPercent(Vector3D p1, Vector3D p2);
+		Vector3D intersection(Plane plane, Vector3D p1, Vector3D p2);
 	};
 }
 
