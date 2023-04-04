@@ -25,10 +25,10 @@ namespace priori{
 	}
 
 	Vector3D Vector3D::operator^(Vector3D other) const{
-		other.x = y*other.z - z*other.y;
-		other.y = z*other.x - x*other.z;
-		other.z = z*other.y - y*other.x;
-		return other;
+		double xNew = y*other.z - z*other.y;
+		double yNew = z*other.x - x*other.z;
+		double zNew = x*other.y - y*other.x;
+		return Vector3D{xNew, yNew, zNew, isPoint};
 	}
 
 	double Vector3D::operator*(const Vector3D &other) const{
@@ -50,9 +50,12 @@ namespace priori{
 	}
 
 	Vector3D Vector3D::operator^=(const Vector3D &other){
-		x = y*other.z - z*other.y;
-		y = z*other.x - x*other.z;
-		z = z*other.y - y*other.x;
+		double xNew = y*other.z - z*other.y;
+		double yNew = z*other.x - x*other.z;
+		double zNew = x*other.y - y*other.x;
+		x = xNew;
+		y = yNew;
+		z = zNew;
 		return *this;
 	}
 
